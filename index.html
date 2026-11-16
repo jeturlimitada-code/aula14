@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>CRM JEtur — Aula 1</title>
+</head>
+<body>
+  <main class="container">
+    <h1>CRM JEtur</h1>
+
+    <form id="form-cliente" class="cartao">
+      <h2>Novo cliente</h2>
+      <div class="grelha">
+        <label>Nome *<input id="nome" placeholder="Ex: Maria Silva"></label>
+        <label>Contacto *<input id="contacto" placeholder="Ex: 923 000 000"></label>
+        <label>Email<input id="email" type="email" placeholder="Ex: maria@email.com"></label>
+        <label>Funcionário(a)<input id="funcionario" placeholder="Ex: Ana"></label>
+        <label>Valor estimado (Kz)<input id="valor" type="number" min="0" placeholder="Ex: 500000"></label>
+      </div>
+      <button type="submit">Adicionar</button>
+      <p id="mensagem"></p>
+    </form>
+
+    <section class="cartao">
+      <div class="barra">
+        <h2>Clientes</h2>
+        <select id="filtro-status">
+          <option value="">Todas as etapas</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Nome</th><th>Contacto</th><th>Etapa</th><th>Funcionário</th><th class="num">Valor</th><th>Entrada</th><th></th></tr>
+        </thead>
+        <tbody id="tabela-clientes">
+          <tr><td colspan="7" class="vazio">A carregar...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
