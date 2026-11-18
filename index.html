@@ -1,46 +1,77 @@
 <!DOCTYPE html>
+<!-- A linha acima declara que o documento é HTML5. Tem de ser a PRIMEIRA linha: sem isso (ou com algo antes) o browser entra em "quirks mode" e renderiza como nos anos 90. -->
+
+<!-- Raiz do documento. lang="pt" diz o idioma: ajuda leitores de ecrã e a tradução automática. -->
 <html lang="pt">
+<!-- Cabeçalho: informação sobre a página que não aparece no corpo. -->
 <head>
+  <!-- charset="UTF-8": codificação de caracteres, para acentos e ç aparecerem bem. -->
   <meta charset="UTF-8">
+  <!-- viewport: width=device-width usa a largura real do ecrã; initial-scale=1.0 = sem zoom. Necessário para telemóveis. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Liga o ficheiro de estilos. rel="stylesheet" = tipo de ligação; href = caminho do ficheiro. -->
   <link rel="stylesheet" href="style.css">
+  <!-- Título que aparece no separador do browser. -->
   <title>CRM JEtur — Aula 1</title>
 </head>
+<!-- Corpo: tudo o que é visível. -->
 <body>
+  <!-- <main> = conteúdo principal; class="container" é o gancho do CSS que centra e limita a largura. -->
   <main class="container">
+    <!-- Título principal da página. -->
     <h1>CRM JEtur</h1>
 
+    <!-- Formulário. id="form-cliente" permite ao JavaScript encontrá-lo; class="cartao" dá o aspecto de cartão. -->
     <form id="form-cliente" class="cartao">
+      <!-- Título do formulário. -->
       <h2>Novo cliente</h2>
+      <!-- Contentor que o CSS transforma numa grelha de colunas para os campos. -->
       <div class="grelha">
+        <!-- <label> envolve o texto e o campo: clicar no texto foca o campo. id="nome" é como o JS o lê; placeholder = texto de exemplo que desaparece ao escrever. -->
         <label>Nome *<input id="nome" placeholder="Ex: Maria Silva"></label>
+        <!-- Campo do contacto (telefone), também obrigatório (*). -->
         <label>Contacto *<input id="contacto" placeholder="Ex: 923 000 000"></label>
+        <!-- type="email" faz o browser validar o formato do email. -->
         <label>Email<input id="email" type="email" placeholder="Ex: maria@email.com"></label>
+        <!-- Nome de quem atende o cliente. -->
         <label>Funcionário(a)<input id="funcionario" placeholder="Ex: Ana"></label>
+        <!-- type="number" só aceita números; min="0" impede valores negativos. -->
         <label>Valor estimado (Kz)<input id="valor" type="number" min="0" placeholder="Ex: 500000"></label>
       </div>
+      <!-- type="submit": ao clicar, dispara o evento "submit" do formulário (ouvido no script.js). -->
       <button type="submit">Adicionar</button>
+      <!-- Parágrafo vazio onde o JS escreve as mensagens de sucesso ou erro. -->
       <p id="mensagem"></p>
     </form>
 
+    <!-- <section> = bloco temático; aqui, a lista de clientes. -->
     <section class="cartao">
+      <!-- Barra com o título à esquerda e o filtro à direita (alinhada pelo CSS). -->
       <div class="barra">
         <h2>Clientes</h2>
+        <!-- Lista pendente de filtro. O JS acrescenta as outras opções. -->
         <select id="filtro-status">
+          <!-- value="" = sem filtro: o backend devolve todos os clientes. -->
           <option value="">Todas as etapas</option>
         </select>
       </div>
+      <!-- Tabela de dados. -->
       <table>
+        <!-- Cabeçalho da tabela. -->
         <thead>
+          <!-- tr = linha; th = célula de cabeçalho. class="num" alinha a coluna de valores à direita. A última th, vazia, é a coluna do botão Apagar. São 7 colunas (por isso colspan="7" no JS). -->
           <tr><th>Nome</th><th>Contacto</th><th>Etapa</th><th>Funcionário</th><th class="num">Valor</th><th>Entrada</th><th></th></tr>
         </thead>
+        <!-- Corpo da tabela, preenchido pelo JS (id="tabela-clientes"). -->
         <tbody id="tabela-clientes">
+          <!-- Linha provisória até a lista chegar do servidor. colspan="7" = célula que ocupa as 7 colunas. -->
           <tr><td colspan="7" class="vazio">A carregar...</td></tr>
         </tbody>
       </table>
     </section>
   </main>
 
+  <!-- Carrega o JavaScript no fim do body, para os elementos acima já existirem quando o script correr. -->
   <script src="script.js"></script>
 </body>
 </html>
