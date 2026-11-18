@@ -1,23 +1,46 @@
+/* Todos os elementos: box-sizing border-box faz width/height incluírem padding e borda (evita que as caixas "cresçam"). */
 * { box-sizing: border-box; }
+/* Página: fonte do sistema (system-ui) com sans-serif de reserva; fundo cinzento claro; texto quase preto; margin 0 retira a margem padrão do browser. */
 body { font-family: system-ui, sans-serif; background: #f3f4f6; color: #111827; margin: 0; }
+/* Coluna central: largura máxima 1000px; margin "0 auto" (0 em cima/baixo, auto nos lados) centra-a; padding 24px em cima/baixo e 16px nos lados; flex em coluna com 16px entre os blocos. */
 .container { max-width: 1000px; margin: 0 auto; padding: 24px 16px; display: flex; flex-direction: column; gap: 16px; }
+/* Título principal sem margem (o espaçamento vem do gap do container). */
 h1 { margin: 0; }
+/* Subtítulos: sem margem em cima, 12px em baixo (margin: topo laterais baixo); tamanho 1.1rem (1.1 × tamanho base). */
 h2 { margin: 0 0 12px; font-size: 1.1rem; }
+/* Cartão: fundo branco, borda cinzenta fina, cantos arredondados, 16px de espaço em cima/baixo e 20px nos lados. */
 .cartao { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px 20px; }
+/* Grelha do formulário: colunas automáticas (auto-fit) com mínimo 180px e máximo 1fr (partilha igual do espaço); 12px entre campos e 12px de margem em baixo. */
 .grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 12px; }
+/* Cada label: texto por cima do campo (coluna), 4px entre eles, letra pequena e cinzenta. */
 label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: #374151; }
+/* Campos e listas: espaço interno, borda cinzenta, cantos arredondados; font: inherit usa a mesma letra da página (por defeito, os campos usam outra). */
 input, select { padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 8px; font: inherit; }
+/* Botões: fundo azul, texto branco, sem borda, cantos arredondados, mesma letra da página, cursor de mãozinha. */
 button { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 9px 16px; font: inherit; cursor: pointer; }
+/* Ao passar o rato por cima, o azul escurece. */
 button:hover { background: #1d4ed8; }
+/* Barra do título + filtro: flex em linha, título à esquerda e filtro à direita (space-between), centrados na vertical. */
 .barra { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+/* O título dentro da barra não precisa de margem. */
 .barra h2 { margin: 0; }
+/* Tabela: largura total; border-collapse junta as bordas das células; letra um pouco menor. */
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+/* Cabeçalho: alinhado à esquerda, pequeno, maiúsculas, cinzento, linha por baixo. */
 th { text-align: left; font-size: 0.75rem; text-transform: uppercase; color: #6b7280; padding: 8px; border-bottom: 1px solid #e5e7eb; }
+/* Células: 8px de espaço e uma linha cinzenta clara a separar as linhas. */
 td { padding: 8px; border-bottom: 1px solid #f3f4f6; }
+/* Coluna de valores alinhada à direita (números lêem-se melhor assim). */
 .num { text-align: right; }
+/* Mensagens "A carregar..." / "Sem clientes.": centradas, cinzentas, com espaço extra. */
 .vazio { text-align: center; color: #6b7280; padding: 20px; }
+/* Select da etapa: negrito, fundo branco e menos espaço. A cor do texto e da borda vem do JS (style inline). */
 .etapa { font-weight: 600; background: #fff; padding: 4px 6px; }
+/* Botão Apagar discreto: sem fundo, texto cinzento, menos espaço. */
 .apagar { background: none; color: #6b7280; padding: 4px 8px; }
+/* Ao passar o rato, fica vermelho: avisa que é uma acção destrutiva. */
 .apagar:hover { background: #fee2e2; color: #b91c1c; }
+/* Mensagens de erro a vermelho (classe posta pelo JS). */
 .erro { color: #b91c1c; }
+/* Mensagens de sucesso a verde (classe posta pelo JS). */
 .sucesso { color: #047857; }
