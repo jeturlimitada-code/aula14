@@ -1,12 +1,10 @@
 /* ════════════════════════════════════════════════════════════════════
- * AULA 1 — SOLUÇÃO: CRUD completo de clientes (modelo do CRM real)
  *
  * Correr:  1. criar o ficheiro .env com a DATABASE_URL da base de TREINO
  *             (copiar o de teste/back/.env; o .env.exemplo é só um modelo)
  *          2. npm install   (só a primeira vez)
  *          3. npm run dev
  * A tabela "clientes" antiga (com nome/email obrigatórios) tem de ser apagada
- * antes, na base de TREINO: DROP TABLE IF EXISTS clientes;  (guião da Aula 1, passo 3.1)
  * ════════════════════════════════════════════════════════════════════ */
 import "dotenv/config";
 import express from "express";
